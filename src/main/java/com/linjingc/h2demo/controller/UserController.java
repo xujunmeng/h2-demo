@@ -1,12 +1,14 @@
 package com.linjingc.h2demo.controller;
 
-import com.linjingc.h2demo.entity.BasicUser;
 import com.linjingc.h2demo.dao.UserMapper;
+import com.linjingc.h2demo.entity.BasicUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -15,7 +17,7 @@ public class UserController {
     private UserMapper userMapper;
 
     @RequestMapping("/{id}")
-    public BasicUser findUser(@PathVariable String name) {
+    public List<BasicUser> findUser(@PathVariable String name) {
 
         return userMapper.findUser(name);
     }
